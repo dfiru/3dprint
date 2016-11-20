@@ -4,7 +4,8 @@ desc "build something"
 
 stuff = %w(
 vacuum_plug
-plasma_cap);
+plasma_cap
+washer);
 
 stuff.each do |s|
   o = "#{s}.stl"
