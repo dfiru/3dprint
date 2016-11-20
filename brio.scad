@@ -5,7 +5,7 @@ BEVEL=1;
 TRACK_WIDTH=6.2;
 TRACK_HEIGHT=3;
 TRACK_DIST=20;
-TRACK_CHAMFER = 1.5;
+TRACK_CHAMFER = 2;
 
 BRIDGE_HEIGHT=64;
 BRIDGE_R1=214;
@@ -520,11 +520,15 @@ module brio_connector(len) {
     connector_male(len/2);
     connector_female(len/2);
 }
+module brio_connector_soft(len) {
+     connector_female(len/2);
+     mirror([1,0,0]) connector_female(len/2);
+}
 
 //brio_straight(LENGTH);
 //brio_straight((3/4)*LENGTH);
 //brio_straight((1/2)*LENGTH);
-brio_straight((1/4)*LENGTH);
+//brio_straight((1/4)*LENGTH);
 //brio_curved(ROUND_R, 8); // inner radius, Nth part
 //brio_curved(ROUND_R, 16); // inner radius, Nth part
 //brio_bridge();
@@ -534,3 +538,4 @@ brio_straight((1/4)*LENGTH);
 //brio_support();
 //brio_tunnel();
 //brio_connector(CONN_LEN);
+brio_connector_soft(CONN_LEN);
